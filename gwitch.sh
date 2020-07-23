@@ -34,7 +34,7 @@ while getopts "a:s:d:" flag; do
             if [ ! -f ./config ]; then
                 touch ./config
             fi
-            printf "Host *\n  AddKeysToAgent yes\n  UseKeychain yes\n  IdentityFile ~/.ssh/github-$user\n\n" >> ./config
+            printf "Host github.com-$user\n  HostName github.com\n  User git\n  IdentityFile ~/.ssh/github-$user\n  IdentitiesOnly yes\n\n" >> ./config
             if [ ! -d ~/gwitch ]; then
                 mkdir ~/gwitch
             fi
